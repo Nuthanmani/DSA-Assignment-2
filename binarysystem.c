@@ -1,15 +1,15 @@
 #include <stdio.h>
-int binary(int bin1, int bin2)
+int binary(int bn1, int bn2)
 {
     int i = 0, rem = 0, a[20];
     int prod = 0;
  
-    while (bin1 != 0 || bin2 != 0)
+    while (bn1 != 0 || bn2 != 0)
     {
-        a[i++] =(bin1 % 10 + bin2 % 10 + rem) % 2;
-        rem =(bin1 % 10 + bin2 % 10 + rem) / 2;
-        bin1 = bin1 / 10;
-        bin2 = bin2 / 10;
+        a[i++] =(bn1 % 10 + bn2 % 10 + rem) % 2;
+        rem =(bn1 % 10 + bn2 % 10 + rem) / 2;
+        bn1 = bn1 / 10;
+        bn2 = bn2 / 10;
     }
     if (rem != 0)
         a[i++] = rem;
@@ -22,7 +22,7 @@ int binary(int bin1, int bin2)
 int main()
 {
  
-    long bin1, bin2,multiply=0;
+    long bn1, bn2,multiply=0;
    
     int i = 0, rem = 0, a[20], digit, factor = 1;
     while(1){
@@ -32,15 +32,15 @@ int main()
       scanf("%d",&n);
       if(n==1){
            printf("Enter the first binary number: ");
-    scanf("%ld", &bin1);
+    scanf("%ld", &bn1);
     printf("Enter the second binary number: ");
-    scanf("%ld", &bin2);
-    while (bin1 != 0 || bin2 != 0)
+    scanf("%ld", &bn2);
+    while (bn1 != 0 || bn2 != 0)
     {
-        a[i++] =(bin1 % 10 + bin2 % 10 + rem) % 2;
-        rem =(bin1 % 10 + bin2 % 10 + rem) / 2;
-        bin1 = bin1 / 10;
-        bin2 = bin2 / 10;
+        a[i++] =(bn1 % 10 + bn2 % 10 + rem) % 2;
+        rem =(bn1 % 10 + bn2 % 10 + rem) / 2;
+        bn1 = bn1 / 10;
+        bn2 = bn2 / 10;
     }
     if (rem != 0)
         a[i++] = rem;
@@ -53,20 +53,20 @@ int main()
 
       else if(n==2){
               printf("Enter the first binary number: ");
-    scanf("%ld", &bin1);
+    scanf("%ld", &bn1);
     printf("Enter the second binary number: ");
-    scanf("%ld", &bin2);
-    while (bin2 != 0)
+    scanf("%ld", &bn2);
+    while (bn2 != 0)
     {
-        digit =  bin2 % 10;
+        digit =  bn2 % 10;
         if (digit == 1)
         {
-            bin1 = bin1 * factor;
-            multiply = binary(bin1, multiply);
+            bn1 = bn1 * factor;
+            multiply = binary(bn1, multiply);
         }
         else
-            bin1 = bin1 * factor;
-        bin2 = bin2 / 10;
+            bn1 = bn1 * factor;
+        bn2 = bn2 / 10;
         factor = 10;
     }
     printf("Product of two binary numbers: %ld", multiply);
